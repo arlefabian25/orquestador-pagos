@@ -1,0 +1,20 @@
+# Perfil para desarrollo local: SPRING_PROFILES_ACTIVE=local
+# Con Docker Compose Support, Spring toma la conexión a PostgreSQL y Kafka de compose.yaml.
+# Estos valores son solo para local: nunca uses secretos reales aquí.
+spring:
+  datasource:
+    password: pagos
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9000   # servidor de autorización local (o un mock)
+
+pagos:
+  proveedor:
+    api-key: clave-local
+    secreto-webhook: secreto-local
+
+logging:
+  level:
+    com.ecomerce.pagos: DEBUG

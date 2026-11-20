@@ -1,0 +1,17 @@
+# Valores solo para las pruebas. Spring carga classpath:/config/application.yaml encima del
+# application.yaml principal, así que aquí basta con definir lo que en producción viene de
+# variables de entorno. PostgreSQL y Kafka los aporta Testcontainers.
+spring:
+  datasource:
+    password: test
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # El decodificador se crea de forma perezosa: esta URL solo se consulta si llega un JWT.
+          issuer-uri: http://localhost:9999/issuer-de-prueba
+
+pagos:
+  proveedor:
+    api-key: clave-de-prueba
+    secreto-webhook: secreto-de-prueba

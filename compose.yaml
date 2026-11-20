@@ -1,0 +1,13 @@
+services:
+  postgres:
+    image: 'postgres:17'
+    environment:
+      - 'POSTGRES_DB=pagos'
+      - 'POSTGRES_USER=pagos'
+      - 'POSTGRES_PASSWORD=pagos'
+    ports:
+      - '5432'
+  kafka:
+    image: 'apache/kafka:latest'
+    ports:
+      - '9092:9092'
